@@ -17,6 +17,7 @@ def calc_f1_score(tp: int, fp: int, fn: int) -> float:
 
     return precision, recall, f1_score
 
+
 # Excercise 2: Activation function( Sigmoid, Relu, Elu)
 def is_number(n):
     try:
@@ -70,24 +71,26 @@ def regression_loss(loss_name, num_samples):
 
 # Excerise 4: 
 def approx_sin(x, n):
-    x= math.radians(x)
-    assert isinstance(n, int) and n > 0, "n must be a positive integer"
-    return sum(((-1) ** i) * (x ** (2*i + 1)) / math.factorial(2 * i + 1) for i in range(n))
+    assert n > 0, "n must be greater than 0"
+    return sum(((-1) ** i) * (x ** (2 * i + 1)) / math.factorial(2 * i + 1) for i in range(n))
 
-def approx_cosin(x, n):
-    x= math.radians(x)
-    assert isinstance(n, int) and n > 0, "n must be a positive integer"
-    return sum(((-1) ** i) * (x ** (2*i)) / math.factorial(2 * i) for i in range(n))
+
+def approx_cos(x, n):
+    assert n > 0, "n must be greater than 0"
+    return sum(((-1) ** i) * (x ** (2 * i)) / math.factorial(2 * i) for i in range(n))
+
 
 def approx_sinh(x, n):
-    x= math.radians(x)
-    assert isinstance(n, int) and n > 0, "n must be a positive integer"
-    return sum((x ** (2*i + 1)) / math.factorial(2*i + 1) for i in range(n))
+    assert n > 0, "n must be greater than 0"
+    return sum((x ** (2 * i + 1)) / math.factorial(2 * i + 1) for i in range(n))
 
-def approx_coshing(x, n):
-    x= math.radians(x)
-    assert isinstance(n, int) and n > 0, "n must be a positive integer"
-    sum((x ** (2*i)) / math.factorial(2*i) for i in range(n))
+
+def approx_cosh(x, n):
+    assert n > 0, "n must be greater than 0"
+    return sum((x ** (2 * i)) / math.factorial(2 * i) for i in range(n))
+
+assert round(approx_cosh(x=1, n=10), 2) == 1.54
+print(round(approx_cosh(x=3.14, n=10), 2))
 
 
 # Excercise 5: Mean difference
